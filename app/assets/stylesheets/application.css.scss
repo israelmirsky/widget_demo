@@ -11,3 +11,45 @@
  *= require_self
  *= require_tree .
  */
+
+ #container {
+  margin: 0 auto;
+  width: 800px;
+ }
+
+ header {
+  text-align: center;
+  padding: 20px;
+ }
+
+ section.journalist {
+  height: 100px;
+  position: relative;
+
+  .journalist_photo {
+    position: absolute;
+    top: 30px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+  }
+
+  span {
+    position: absolute;
+    left: 50px;
+    &.name {
+      top: 30px;
+    }
+    &.email {
+      top: 50px;
+    }
+  }
+ }
+
+ .photo {
+  width: 100%;
+ }
+
+ iframe {
+  right: 0px;
+  position: absolute;
+ }

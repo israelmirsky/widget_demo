@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag    "application", :media => "all" %>
+
+<div id="container">
+  <header>
+    <%= image_tag "http://s.huffpost.com/images/v/logos/bpage/politics.gif" %>
+  </header>
+
+  <nav></nav>
+
+  <section class="journalist">
+
+    <%= image_tag "http://s.huffpost.com/contributors/paul-blumenthal/headshot.jpg", class: "journalist_photo" %>
+    <span class="name">Paul Blumenthal Become a fan</span>
+    <span class="email">paulblumenthal@huffingtonpost.com</span>
+
+    <% if Rails.env.production? %>
+      <iframe src="http://alpha.uncoverage.com/widget?journalist_id=525dfa2887a36684d4000005&amount=100" style="border: 0"/>
+    <% else %>
+      <iframe src="http://localhost:3000/widget?journalist_id=5308c70207fd3497b3000003&amount=100" style="border: 0"/>
+    <% end %>
+    </iframe>
+  </section>
+
+  <section>
+    <h1>Stephen Colbert To IRS: Let Me Make Fun Of 'Dark Money' And Super PACs Some More</h1>
+    
+    <%= image_tag "http://i0.huffpost.com/gen/1651947/thumbs/n-STEPHEN-COLBERT-SUPER-PAC-large570.jpg", class: "photo" %>
+
+    <p>WASHINGTON -- Comedian Stephen Colbert, whose gags have pointed out the absurdity of U.S. campaign finance laws since the Supreme Court's 2010 Citizens United ruling, asked the IRS Thursday for permission to testify on proposed rules governing the political activity of social welfare nonprofits.</p>
+
+    <p>Colbert said in a comment filed with the IRS that the proposed rules "raise serious constitutional and legal issues" for social welfare nonprofits. These organizations have become known as "dark money" groups, because they allow political operatives to spend money on electoral activity without having to disclose donors.</p>
+
+    <p>Colbert in 2011 ran segments on his Comedy Central show "The Colbert Report" exposing campaign finance absurdities through the creation of his own super PAC -- Americans for a Better Tomorrow, Tomorrow -- and a social welfare nonprofit. The Huffington Post ran a five-part series on Colbert's campaign finance exploits.</p>
+
+    <p>Colbert officially retired his super PAC in 2012 and donated the funds raised by both organizations to two campaign finance watchdog groups, the Campaign Legal Center, founded by Colbert's lawyer Trevor Potter, and the Center for Responsive Politics.</p>
+
+    <p>The proposed rules have attracted a whopping 143,635 comments to the IRS, with both tea party and progressive groups mobilizing supporters. Campaign finance reform supporters also have flooded the IRS with comments urging it to set a stringent and clear limit on the amount of electoral activity these groups are allowed. The Huffington Post previously examined the regulations here.</p>
+
+    <p>Colbert's position on the lengthy and complicated proposed rules is not entirely clear. His letter simply states, "The Proposed Regulations raise serious constitutional and legal issues for Colbert Super PAC SHH Institute and other entities like it, which seek to make America a better place. I request the opportunity to discuss these issues in detail through oral testimony at a public hearing related to the Proposed Regulations."</p>
+  </section>
+</div>

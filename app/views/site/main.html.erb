@@ -1,0 +1,5 @@
+<% if Rails.env.production? %>
+  <iframe src="http://alpha.uncoverage.com/widget?journalist_id=525dfa2887a36684d4000005&amount=100" style="border: 0"/>
+<% else %>
+  <iframe src="http://localhost:3000/widget?journalist_id=5308c70207fd3497b3000003&amount=100" style="border: 0"/>
+<% end %>
