@@ -13,10 +13,140 @@
     <span class="name">Paul Blumenthal Become a fan</span>
     <span class="email">paulblumenthal@huffingtonpost.com</span>
 
+    <div class="modal fade" id="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Modal title</h4>
+          </div> -->
+          <div class="modal-body">
+            <p>One fine body&hellip;</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+
+
+    @media only screen and (max-width : 840px) {
+      /* Styles */
+        * {background: yellow !important;}
+      }
+      /* common */
+
+      .modal {
+        width: 640px;
+      }
+
+      .modal-body iframe {
+        width: 100%;
+        height: 500px;
+      }
+
+      .modal .modal-body {
+        padding: 0;
+      }
+
+      .modal .modal-body iframe {
+        width: 100%;
+        height: 500px;
+      }
+
+      /* desktop */
+
+      .desktop {
+        height: 500px;
+        width: 800px;
+        margin: 0 auto;
+      }
+
+      .desktop .modal-dialog {
+        width: auto;
+      }
+
+      /* handheld */
+
+      .handheld {
+        width: 95%;
+        margin: 0 auto;
+      }
+
+      .handheld .modal-dialog {
+        width:100%;
+      }
+
+      .handheld .modal-content {
+        width:100%;
+      }
+    </style>
+
+    <script type="text/javascript">
+
+      function detectDevice (e) {
+        if ($(window).width() <= 1000 ){return "handheld"} else {return "desktop"}
+      }
+
+      device = detectDevice()
+
+      $('.modal').attr("device", device)
+
+      function changeModalWidth() {
+        if (device ==  "handheld") {
+          $('.modal').addClass("handheld").removeClass("desktop")
+        }
+        else {
+          $('.modal').removeClass("handheld").addClass("desktop")
+        }
+      }
+
+      changeModalWidth()
+
+      function modalContent (data) {
+        if (data.url){
+          $('.modal').modal()                      // initialized with defaults
+          $('.modal').modal({ keyboard: false })   // initialized with no keyboard
+
+          html = "<iframe id='popUp' src='" + data.url + "' style='border: 0; width: 100%; display: inline-block; margin: 0 auto;' marginheight='20'/></iframe>"
+
+          $('.modal-body').html(html)
+          $('.modal').modal('show')
+
+          $(".login").fadeOut()
+        }
+
+        if (data.text){
+          console.log(data.text)
+        }
+      }
+
+      // function resizeModal (e) {
+      //   height = $(window).width()
+      // }
+
+      // $(window).on('resize', resizeModal())
+
+      function receiveMessage (e){
+        modalContent(e.data)
+      }
+      window.addEventListener('message', receiveMessage, false)
+    </script>
+
+
     <% if Rails.env.production? %>
       <iframe src="http://alpha.uncoverage.com/widget?journalist_id=525dfa2887a36684d4000005&amount=100" style="border: 0; width: 320px"/>
     <% else %>
-      <iframe src="http://localhost:3000/widget?journalist_id=<%= @journalist.id %>&amount=100" style="border: 0; width: 320px"/>
+      <iframe src="http://localhost:3000/widget?journalist_id=5327dc3e07fd34d5fc000003&amount=100" style="border: 0; width: 320px"/>
     <% end %>
 
     </iframe>
