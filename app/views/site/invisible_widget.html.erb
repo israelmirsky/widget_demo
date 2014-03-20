@@ -91,8 +91,8 @@
 </div><!-- /.modal -->
 
 <% if Rails.env.production? %>
-  <iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=525dfa2887a36684d4000005" style="display: none;"/></iframe>
-  <iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=52951e6eed53308d50000001" style="display: none;"/></iframe>
+  <iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=52fb9f60ed5330b2b0000002" style="display: none;"/></iframe>
+  <iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=52fc18b6ed53306007000007" style="display: none;"/></iframe>
 <% else %>
   <iframe id="integration_widget" src="http://localhost:3000/integration_widget?journalist_id=<%= @journalist.id %>" style="display: none;"/></iframe>
   <iframe id="integration_widget" src="http://localhost:3000/integration_widget?journalist_id=<%= @journalist_second.id %>" style="display: none;"/></iframe>
