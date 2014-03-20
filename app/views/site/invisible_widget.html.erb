@@ -35,41 +35,65 @@
 </div>
 
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://uncoverage.herokuapp.com/assets/widget_modal.css"> <!-- TODO for production embed -->
 <script type="text/javascript">
+
+  // Initializers //
+
   Uncoverage = new Object();
-  Uncoverage.Data = {subscriptions: []}
-
-  function receiveMessage (e) {
-    Uncoverage.Data.subscriptions.push(e.data)
-  }
-
+  Uncoverage.subscriptions = []
+  Uncoverage.current_user = {id: null, logged_in: false, card: false}
   window.addEventListener('message', receiveMessage, false)
 
-  Uncoverage.get_subscription = function (journalist_id) {
-    subscriptions = Uncoverage.Data.subscriptions
-    if(journalist_id){
-      for ( i in Uncoverage.Data.subscriptions){
-        if (Uncoverage.Data.subscriptions[i].journalist_id == journalist_id){
-          return Uncoverage.Data.subscriptions[i]
-        }
-      }
-    }
-    else{
-      return Uncoverage.Data.subscriptions[0]
-    }
+  function receiveMessage (e) {
+    Uncoverage.subscriptions.push(e.data.subscription)
+    Uncoverage.response = e
+    if (Uncoverage.current_user.logged_in == false) {Uncoverage.current_user = e.data.user}
+    Uncoverage.settings = e.data.settings
   }
 
-  Uncoverage.get_user = function (id) {
-    return Uncoverage.Data.subscriptions[0].user_id
+  // Client Actions //
+
+  Uncoverage.get_subscription = function (journalist_id) {
+    subscriptions = Uncoverage.subscriptions
+    if(journalist_id){for ( i in subscriptions){if (subscriptions[i].journalist_id == journalist_id){return subscriptions[i]}}}
+    else{return subscriptions[0]}
   }
+
+  // Popup logic //
+
+  Uncoverage.popupShow = function(url) {
+    $('.modal').modal();$('.modal').modal({ keyboard: false }); html = "<iframe id='popUp' src='" + url + "' style='border: 0; width: 100%; display: inline-block; margin: 0 auto;' marginheight='20'/></iframe>";$('.modal-body').html(html);$('.modal').modal('show')
+  }
+
+  Uncoverage.popupClose = function () {$('.modal').modal('hide')}
+
+  Uncoverage.login      = function () {Uncoverage.popupShow(Uncoverage.settings.host + "/users/sign_in")}
+  Uncoverage.createCard = function () {Uncoverage.popupShow(Uncoverage.settings.host + "/users/create_card")}
+  Uncoverage.register   = function () {Uncoverage.popupShow(Uncoverage.settings.host + "/users/sign_up")}
 
 </script>
-<h3>Invisible widget here</h3>
+
+<div class="modal fade" id="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <% if Rails.env.production? %>
   <iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=525dfa2887a36684d4000005" style="display: none;"/></iframe>
   <iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=52951e6eed53308d50000001" style="display: none;"/></iframe>
 <% else %>
-  <iframe id="integration_widget" src="http://localhost:3000/integration_widget?journalist_id=5327dc3e07fd34d5fc000003" style="display: none;"/></iframe>
+  <iframe id="integration_widget" src="http://localhost:3000/integration_widget?journalist_id=<%= @journalist.id %>" style="display: none;"/></iframe>
+  <iframe id="integration_widget" src="http://localhost:3000/integration_widget?journalist_id=<%= @journalist_second.id %>" style="display: none;"/></iframe>
 <% end %>
