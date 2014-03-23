@@ -116,7 +116,7 @@
           $('.modal-body').html(html)
           $('.modal').modal('show')
         }
-        else if (e.data.action == "close_popup"){
+        else if (e.data.action == "closePopup"){
           $('.modal').modal('hide')
         }
       }
@@ -127,7 +127,7 @@
     <% if Rails.env.production? %>
       <iframe id="widget" src="http://alpha.uncoverage.com/widget?journalist_id=525dfa2887a36684d4000005&amount=100" style="border: 0; width: 320px"/>
     <% else %>
-      <iframe id="widget" src="http://localhost:3000/widget?journalist_id=5327dc3e07fd34d5fc000003&amount=100" style="border: 0; width: 320px"/>
+      <iframe id="widget" src="http://localhost:3000/widget?journalist_id=532d1cd607fd34c05b000004&amount=100" style="border: 0; width: 320px"/>
     <% end %></iframe>
 
     </iframe>
