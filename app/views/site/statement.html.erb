@@ -1,6 +1,7 @@
-<%= stylesheet_link_tag    "application", :media => "all" %>
 
-<div id="container">
+<div class="modal fade" id="modal"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal -->
+
+    <div id="container">
   <header>
     <%= image_tag "http://s.huffpost.com/images/v/logos/bpage/politics.gif" %>
   </header>
@@ -11,103 +12,21 @@
 
     <%= image_tag "http://s.huffpost.com/contributors/paul-blumenthal/headshot.jpg", class: "journalist_photo" %>
     <span class="name">Paul Blumenthal Become a fan</span>
-    <span class="email">paulblumenthal@huffingtonpost.com</span>
-
-     <div class="modal fade" id="modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <style type="text/css">
-
-      @media only screen and (max-width : 1113px) {
-          .modal-footer {
-            text-align: center;
-          }
-
-          .btn.btn-default {
-            font-size: 3em;
-            width: 100%;
-          }
-        }
-
-      /* common */
-
-      .modal {
-        width: 640px;
-        margin: 0 auto;
-        width: 90%;
-      }
-
-      .modal .modal-dialog {
-        width:100%;
-      }
-
-      .modal .modal-content {
-        width:100%;
-        background: #eee;
-      }
-
-      .modal-body iframe {
-        width: 100%;
-        height: 500px;
-        padding: 10px;
-      }
-
-      .modal .modal-body {
-        padding: 0;
-      }
-
-      .modal .modal-body iframe {
-        width: 100%;
-        height: 500px;
-      }
-
-      .modal-footer {
-        margin-top: 0;
-        border: 0;                                           
-      }
-
-      /* desktop */
-
-      .desktop {
-        height: 500px;
-        width: 800px;
-        margin: 0 auto;
-      }
-
-      .desktop .modal-dialog {
-        width: auto;
-      }
-
-      /* handheld */
-
-      .handheld {
-        width: 95%;
-        margin: 0 auto;
-      }
-
-      .handheld .modal-dialog {
-        width:100%;
-      }
-
-      .handheld .modal-content {
-        width:100%;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/assets/widget_modal.css">
 
     <script type="text/javascript">
+
+      Uncoverage = new Object;
+
+      // Uncoverage.viewPortPresence
+
+      if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|Playbook|IEMobile|Nexus|Opera Mini|Mobile/i).test(navigator.userAgent))
+      { window.device = "handheld" } else { window.device = "desktop" }
+
       function receiveMessage (e) {
         if (e.data.url){
           $('.modal').modal()                      // initialized with defaults
@@ -116,21 +35,40 @@
           $('.modal-body').html(html)
           $('.modal').modal('show')
         }
-        else if (e.data.action == "closePopup"){
+
+        if (e.data.action == "closePopup"){
           $('.modal').modal('hide')
         }
+
+        if (e.data.action =="getDeviceType") {
+          setDeviceType()
+        }
+
+        if (e.data.windowClass) {
+          $("iframe#popUp").attr("data-windowclass", e.data.windowClass)
+          $(".modal").attr("data-windowclass", e.data.windowClass)
+        }
+      }
+
+      setDeviceType = function (){
+        widget = document.getElementById("popUp").contentWindow
+        widget.postMessage({device: window.device}, "*")
+
+        $(".modal").attr("data-device", window.device)
+        $("iframe#popUp").attr("data-device", window.device)
       }
 
       window.addEventListener('message', receiveMessage, false)
     </script>
 
-    <% if Rails.env.production? %>
-      <iframe id="widget" src="http://alpha.uncoverage.com/widget?journalist_id=525dfa2887a36684d4000005&amount=100" style="border: 0; width: 320px"/>
-    <% else %>
-      <iframe id="widget" src="http://localhost:3000/widget?journalist_id=532d1cd607fd34c05b000004&amount=100" style="border: 0; width: 320px"/>
-    <% end %></iframe>
+  </section>
 
-    </iframe>
+  <section id="widgetsection">
+    <% if Rails.env.production? %>
+      <iframe id="widget" src="http://alpha.uncoverage.com/widget?journalist_id=525dfa2887a36684d4000005&amount=100" style="border: 0"/></iframe>
+    <% else %>
+      <iframe id="widget" src="http://localhost:3000/widget?journalist_id=532d1cd607fd34c05b000004&amount=100" style="border: 0"/></iframe>
+    <% end %>
   </section>
 
   <section>
