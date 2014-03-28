@@ -31,7 +31,7 @@
         if (e.data.url){
           $('.modal').modal()                      // initialized with defaults
           $('.modal').modal({ keyboard: false })   // initialized with no keyboard
-          html = "<iframe id='popUp' src='" + e.origin + e.data.url + "' style='border: 0; width: 100%; display: inline-block; margin: 0 auto;' marginheight='20'/></iframe>"
+          html = "<iframe id='popUp' src='" + e.origin + e.data.url + "' style='border: 0; margin: 0 auto;' marginheight='20'/></iframe>"
           $('.modal-body').html(html)
           $('.modal').modal('show')
         }
