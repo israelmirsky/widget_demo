@@ -1,7 +1,16 @@
+<div id="modal">
+  <div class="content">
+    <div class="body"></div>
+    <div class="footer">
+      <button type="button">
+        Close
+      </button>
+    </div>
+  </div>
+  <div id="modal-backdrop"></div>
+</div>
 
-<div class="modal fade" id="modal"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div><!-- /.modal-content --></div><!-- /.modal-dialog --></div><!-- /.modal -->
-
-    <div id="container">
+<div id="container">
   <header>
     <%= image_tag "http://s.huffpost.com/images/v/logos/bpage/politics.gif" %>
   </header>
@@ -14,13 +23,17 @@
     <span class="name">Paul Blumenthal Become a fan</span>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/assets/widget_modal.css">
 
     <script type="text/javascript">
 
       Uncoverage = new Object;
+
+      $(document).ready(function(){$('#modal, #modal-backdrop').hide()})
+
+      $("#modal > .content > .footer > button").click(function(e){
+        $('#modal, #modal-backdrop').fadeOut()
+      })
 
       // Uncoverage.viewPortPresence
 
@@ -29,15 +42,14 @@
 
       function receiveMessage (e) {
         if (e.data.url){
-          $('.modal').modal()                      // initialized with defaults
-          $('.modal').modal({ keyboard: false })   // initialized with no keyboard
           html = "<iframe id='popUp' src='" + e.origin + e.data.url + "' style='border: 0; margin: 0 auto;' marginheight='20'/></iframe>"
-          $('.modal-body').html(html)
-          $('.modal').modal('show')
+          $('#modal > .content > .body').html(html)
+          $('#modal').fadeIn()
+          $('#modal-backdrop').fadeIn()
         }
 
         if (e.data.action == "closePopup"){
-          $('.modal').modal('hide')
+          $('#modal, #modal-backdrop').fadeOut()
         }
 
         if (e.data.action =="getDeviceType") {
@@ -46,7 +58,8 @@
 
         if (e.data.windowClass) {
           $("iframe#popUp").attr("data-windowclass", e.data.windowClass)
-          $(".modal").attr("data-windowclass", e.data.windowClass)
+          $("#modal").attr("data-windowclass", e.data.windowClass)
+          $("#modal > .content").attr("data-windowclass", e.data.windowClass)
         }
       }
 
@@ -54,20 +67,20 @@
         widget = document.getElementById("popUp").contentWindow
         widget.postMessage({device: window.device}, "*")
 
-        $(".modal").attr("data-device", window.device)
+        $("#modal").attr("data-device", window.device)
+        $("#modal > .content").attr("data-device", window.device)
         $("iframe#popUp").attr("data-device", window.device)
       }
 
       window.addEventListener('message', receiveMessage, false)
     </script>
-
   </section>
 
   <section id="widgetsection">
     <% if Rails.env.production? %>
       <iframe id="widget" src="http://alpha.uncoverage.com/widget?journalist_id=525dfa2887a36684d4000005&amount=100" style="border: 0"/></iframe>
     <% else %>
-      <iframe id="widget" src="http://localhost:3000/widget?journalist_id=532d1cd607fd34c05b000004&amount=100" style="border: 0"/></iframe>
+      <iframe id="widget" src="http://192.168.1.11:3000/widget?journalist_id=533d183e07fd34b1eb000004&amount=100" style="border: 0"/></iframe>
     <% end %>
   </section>
 

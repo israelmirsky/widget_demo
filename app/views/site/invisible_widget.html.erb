@@ -1,5 +1,17 @@
 <%= stylesheet_link_tag    "application", :media => "all" %>
 
+<div id="modal">
+  <div class="content">
+    <div class="body"></div>
+    <div class="footer">
+      <button type="button">
+        Close
+      </button>
+    </div>
+  </div>
+  <div id="modal-backdrop"></div>
+</div>
+
 <div id="container">
   <header>
     <%= image_tag "http://s.huffpost.com/images/v/logos/bpage/politics.gif" %>
@@ -35,8 +47,6 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/assets/widget_modal.css">
 
 <script type="text/javascript">
@@ -48,6 +58,12 @@
   Uncoverage.current_user = {id: null, logged_in: false, card: false}
   if ((/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|Playbook|IEMobile|Nexus|Opera Mini|Mobile/i).test(navigator.userAgent))
   { window.device = "handheld" } else { window.device = "desktop" }
+  
+  $(document).ready(function(){$('#modal, #modal-backdrop').hide()})
+
+  $("#modal > .content > .footer > button").click(function(e){
+    $('#modal, #modal-backdrop').fadeOut()
+  })
 
   function receiveMessage (e) {
     Uncoverage.subscriptions.push(e.data.subscription)
@@ -64,23 +80,23 @@
       Uncoverage.popupClose()
     }
     
-    if (e.data.action =="getDeviceType") {
+    if (e.data.action == "getDeviceType") {
       setDeviceType()
     }
-    
+
     if (e.data.windowClass) {
       $("iframe#popUp").attr("data-windowclass", e.data.windowClass)
-      $(".modal").attr("data-windowclass", e.data.windowClass)
+      $("#modal").attr("data-windowclass", e.data.windowClass)
+      $("#modal > .content").attr("data-windowclass", e.data.windowClass)
     }
   }
 
   setDeviceType = function (){
-    // 1 send message to iframe with device type
     widget = document.getElementById("popUp").contentWindow
     widget.postMessage({device: window.device}, "*")
 
-    // 2 change modal device type
-    $(".modal").attr("data-device", window.device)
+    $("#modal").attr("data-device", window.device)
+    $("#modal > .content").attr("data-device", window.device)
     $("iframe#popUp").attr("data-device", window.device)
   }
 
@@ -95,15 +111,20 @@
   // Popup logic //
 
   Uncoverage.popupShow = function(url) {
-
-    $('.modal').modal();$('.modal').modal({ keyboard: false }); html = "<iframe id='popUp' src='" + url + "' style='border: 0; width: 100%; display: inline-block; margin: 0 auto;' marginheight='20'/></iframe>";$('.modal-body').html(html);$('.modal').modal('show')
+    
+    html = "<iframe id='popUp' src='" + url + "' style='border: 0; margin: 0 auto;' marginheight='20'/></iframe>"
+    $('#modal > .content > .body').html(html)
+    $('#modal').fadeIn()
+    $('#modal-backdrop').fadeIn()
 
     setDeviceType()
   }
   Uncoverage.register   = function () {Uncoverage.popupShow(Uncoverage.origin + "/users/sign_up")}
-  Uncoverage.popupClose = function () {$('.modal').modal('hide')}
+  Uncoverage.popupClose = function () {
+    $('#modal, #modal-backdrop').fadeOut()
+  }
   Uncoverage.login      = function () {
-    // return false if logged in
+    // TODO return false if logged in
     Uncoverage.popupShow(Uncoverage.origin + "/users/sign_in")
   }
   Uncoverage.createCard = function () {
@@ -113,24 +134,12 @@
       Uncoverage.popupShow(Uncoverage.origin + "/create_card");
     }
   }
+
   window.addEventListener('message', receiveMessage, false)
 </script>
-
-<div class="modal fade" id="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 <% if Rails.env.production? %>
   <iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=525dfa2887a36684d4000005" style="display: none;"/></iframe>
 <% else %>
-  <iframe id="integration_widget" src="http://localhost:3000/integration_widget?journalist_id=532d1cd607fd34c05b000004" style="display: none;"/></iframe>
-  <!-- <iframe id="integration_widget" src="http://localhost:3000/integration_widget?journalist_id=532d1cd607fd34c05b000005" style="display: none;"/></iframe> -->
+  <iframe id="integration_widget" src="http://localhost:3000/integration_widget?journalist_id=533d183e07fd34b1eb000004" style="display: none;"/></iframe>
 <% end %>
