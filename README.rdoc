@@ -44,13 +44,15 @@ Sample project that uses Uncoveraпe integration widget.
 2.Get subscription (first if multiple)
   > Uncoverage.get_subscription()
   >> {id: “529f64a4ed5330a951000005", is_active: true, amount: 1000}
-3. If there are multiple subscriptions on a page
+
+3.If there are multiple subscriptions on a page
   > Uncoverage.get_subscription(journalist1_id)
   >> {id: “529f64a4ed5330a951000005", is_active: true, amount: 1000}
 
   > Uncoverage.get_subscription(journalist2_id)
   >> {id: “529f64a4ed5330a95f000001”, is_active: false, amount: 500} 
-4. Show pop-up window
+
+4.Show pop-up window
   Uncoverage.register()
   Uncoverage.login())
   Uncoverage.createCard()
@@ -58,9 +60,10 @@ Sample project that uses Uncoveraпe integration widget.
 
 == Back-end (API)
 
-1. Create: 
+1.Create: 
   POST http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions
-2. Update:
+
+2.Update:
   PUT http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
 
 == etc 
