@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
  #container {
@@ -54,6 +53,7 @@
   height: 102px;
   width: 320px;
   position: absolute;
+  margin-right: 20px;
  }
 
  body {
@@ -151,7 +151,7 @@
         top: 40px;
         right: 20px;
       }
-      
+
       div.photo {
         display: inline-block;
         width: 200px;
