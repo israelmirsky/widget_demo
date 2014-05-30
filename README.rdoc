@@ -4,63 +4,63 @@ Sample project that uses Uncoveraпe integration widget.
 
 == Setup
 
-<script src="http://alpha.uncoverage.com/assets/widget/widget_integration_code.js"></script>
-<iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=<JOURNALIST ID>" style="display: none;"/></iframe>
+  <script src="http://alpha.uncoverage.com/assets/widget/widget_integration_code.js"></script>
+  <iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=<JOURNALIST ID>" style="display: none;"/></iframe>
 
 == Usage
 
 1. Get current user info:
-> Uncoverage.current_user
->> 
-{ 
-  card: true
-  id: "5384cb2b5679612ad8260000"
-  logged_in: true
-  subscribed_journalists_ids:
-    [
-      "538232c25679610408210000",
-      "5384ccdd5679612ad8280000"
-    ]
-  subscriptions:
-    [
-      {
-        amount: 1000
-        is_active: true
-        journalist_id: "538232c25679610408210000"
-        journalist_name: "Fred Borri"
-        subscription_id: "53874b9a5679612ad84b0000"
-        user_id: "5384cb2b5679612ad8260000"
-      },
-      {
-        amount: 1500
-        is_active: true
-        journalist_id: "5384ccdd5679612ad8280000"
-        journalist_name: "Vyacheslav Kozlov"
-        subscription_id: "538792b55679612ad8570000"
-        user_id: "5384cb2b5679612ad8260000"
-      }
+  > Uncoverage.current_user
+  >> 
+  { 
+    card: true
+    id: "5384cb2b5679612ad8260000"
+    logged_in: true
+    subscribed_journalists_ids:
+      [
+        "538232c25679610408210000",
+        "5384ccdd5679612ad8280000"
+      ]
+    subscriptions:
+      [
+        {
+          amount: 1000
+          is_active: true
+          journalist_id: "538232c25679610408210000"
+          journalist_name: "Fred Borri"
+          subscription_id: "53874b9a5679612ad84b0000"
+          user_id: "5384cb2b5679612ad8260000"
+        },
+        {
+          amount: 1500
+          is_active: true
+          journalist_id: "5384ccdd5679612ad8280000"
+          journalist_name: "Vyacheslav Kozlov"
+          subscription_id: "538792b55679612ad8570000"
+          user_id: "5384cb2b5679612ad8260000"
+        }
 
-    ]
-}
+      ]
+  }
 
 2.Get subscription (first if multiple)
-> Uncoverage.get_subscription()
->> {id: “529f64a4ed5330a951000005", is_active: true, amount: 1000}
+  > Uncoverage.get_subscription()
+  >> {id: “529f64a4ed5330a951000005", is_active: true, amount: 1000}
 
 3. If there are multiple subscriptions on a page
-> Uncoverage.get_subscription(journalist1_id)
->> {id: “529f64a4ed5330a951000005", is_active: true, amount: 1000}
+  > Uncoverage.get_subscription(journalist1_id)
+  >> {id: “529f64a4ed5330a951000005", is_active: true, amount: 1000}
 
-> Uncoverage.get_subscription(journalist2_id)
->> {id: “529f64a4ed5330a95f000001”, is_active: false, amount: 500} 
+  > Uncoverage.get_subscription(journalist2_id)
+  >> {id: “529f64a4ed5330a95f000001”, is_active: false, amount: 500} 
 
 == Back-end (API)
 
 1. Create: 
-POST http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions
+  POST http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions
 
 2. Update:
-PUT http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
+  PUT http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
 
 
 
