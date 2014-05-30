@@ -39,7 +39,6 @@ Sample project that uses Uncoveraпe integration widget.
           subscription_id: "538792b55679612ad8570000"
           user_id: "5384cb2b5679612ad8260000"
         }
-
       ]
   }
 
@@ -54,6 +53,13 @@ Sample project that uses Uncoveraпe integration widget.
   > Uncoverage.get_subscription(journalist2_id)
   >> {id: “529f64a4ed5330a95f000001”, is_active: false, amount: 500} 
 
+4. Show pop-up window
+
+  Uncoverage.register()
+  Uncoverage.login())
+  Uncoverage.createCard()
+  Uncoverage.closePopup()
+
 == Back-end (API)
 
 1. Create: 
@@ -62,24 +68,20 @@ Sample project that uses Uncoveraпe integration widget.
 2. Update:
   PUT http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
 
-
-
 == etc 
-
 
 It uses token authentication, I'll send you the API key to use.
 
 Example of curl usage with auth token: 
+  > curl -H "Authorization: Token token=PARTNER_TOKEN" API_ENDPOINT
 
-> curl -H "Authorization: Token token=PARTNER_TOKEN" API_ENDPOINT
-
-(we'll roll out an ssl version soon)
+*we'll roll out an ssl version soon
 
 Parameters:
-{ 
-  user_id: "529f64a4ed5330a951000005", –  to indicate which user you're acting on behalf of. 
-  subscription: {
-     amount: 1000, # amount in cents
-     is_active: true # indicate whether the subscription is active or not. Usually, when creating, you'll need to pass it as true
+  { 
+    user_id: "529f64a4ed5330a951000005", –  to indicate which user you're acting on behalf of. 
+    subscription: {
+       amount: 1000, # amount in cents
+       is_active: true # indicate whether the subscription is active or not. Usually, when creating, you'll need to pass it as true
+    }
   }
-}
