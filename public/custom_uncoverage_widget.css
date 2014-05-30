@@ -5,7 +5,7 @@ body.widget {
 body.widget h3 {
   text-transform: capitalize;
   color: #616161;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   width: 350px;
 }
 
@@ -13,6 +13,7 @@ body.widget p {
   font-size: 0.7rem;
   position: absolute;
   bottom: 0;
+  right: 10px;
   left: 10px;
 }
 
