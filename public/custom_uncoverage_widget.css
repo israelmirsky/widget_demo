@@ -6,11 +6,10 @@ body.widget h3 {
   text-transform: capitalize;
   color: #616161;
   font-size: 1.4rem;
-  font-family: "Times New Roman";
+  width: 350px;
 }
 
 body.widget p {
-  font-style: italic;
   font-size: 0.7rem;
   position: absolute;
   bottom: 0;
@@ -19,7 +18,11 @@ body.widget p {
 
 body.widget > form.widget {
   right: 30px;
-  bottom: 70px;
+  bottom: 65px;
+}
+
+body.widget > form.widget .CheckboxGlow {
+  background: #fff !important;
 }
 
 body.widget > img {
