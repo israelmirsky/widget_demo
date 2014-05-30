@@ -66,9 +66,7 @@ Sample project that uses Uncoveraпe integration widget.
 2.Update:
   PUT http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
 
-== etc 
-
-It uses token authentication, I'll send you the API key to use.
+== Token authentication 
 
 Example of curl usage with auth token: 
   > curl -H "Authorization: Token token=PARTNER_TOKEN" API_ENDPOINT

@@ -1,0 +1,15 @@
+<div class="journalist">
+  <%= link_to '← back to the list', journalists_path %>
+  <h1><%= @journalist.full_name %></h1>
+  <div class="photo"><%= image_tag @journalist.photo_url %></div>
+  <div class="widget">
+    <!-- Start of Uncoverage widget -->
+    <script src="http://alpha.uncoverage.com/assets/widget/widget_code.js"></script>
+    <iframe id="widget" src="http://alpha.uncoverage.com/widget?journalist_id=<%= @journalist.uncoverage_id %>&amount=100" style="border: 0; width: 398px; height: 168px;"/></iframe>
+    <!-- end of Uncoverage widget -->
+  </div>
+  <h2><%= @journalist.first_name %>'s biography</h2>
+  <% 10.times do %>
+    <div class="bio"><%= @journalist.biography %></div>
+  <% end %>
+</div>

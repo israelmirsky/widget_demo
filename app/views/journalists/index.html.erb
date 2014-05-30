@@ -1,0 +1,11 @@
+<div class="journalists">
+  <!-- <h1>Journalists</h1> -->
+  <% @journalists.each do |j| %>
+    <div class="journalist">
+      <h2><%= j.full_name %></h2>
+      <%= link_to 'go to profile →', journalist_path(j) %>
+      <div class="photo"><%= image_tag j.photo_url %></div>
+      <div class="bio"><%= j.biography %></div>
+    </div>
+  <% end %>
+</div>
