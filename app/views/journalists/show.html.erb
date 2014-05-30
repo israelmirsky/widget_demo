@@ -4,7 +4,7 @@
   <div class="photo"><%= image_tag @journalist.photo_url %></div>
   <div class="widget">
     <script src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/assets/widget/widget_code.js"></script>
-    <iframe id="widget" custom_widget_css="http://localhost:3001/assets/custom_uncoverage_widget.css" src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= Rails.env.production? ? @journalist.uncoverage_id : '538232c25679610408210000' %>&amount=100" style="border: 0; width: 398px; height: 168px;"/></iframe>
+    <iframe id="widget" custom_widget_css="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3001' %>/assets/custom_uncoverage_widget.css" src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= Rails.env.production? ? @journalist.uncoverage_id : '538232c25679610408210000' %>&amount=100" style="border: 0; width: 398px; height: 168px;"/></iframe>
   </div>
   <h2><%= @journalist.first_name %>'s biography</h2>
   <% 10.times do %>
