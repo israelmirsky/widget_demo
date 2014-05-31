@@ -3,22 +3,22 @@ body.widget {
 }
   
 body.widget h3 {
-  text-transform: capitalize;
   color: #616161;
   font-size: 1.3rem;
   width: 350px;
 }
 
 body.widget p {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   position: absolute;
   bottom: 0;
   right: 10px;
   left: 10px;
+  text-align: justify;
 }
 
 body.widget > form.widget {
-  right: 30px;
+  right: 28px;
   bottom: 65px;
 }
 
