@@ -4,6 +4,7 @@ Widgetexample::Application.routes.draw do
 
   resources :journalists
 
+  match "custom_design" => "site#custom_design"
   match "widget" => 'site#widget'
   match "invisible_widget" => 'site#invisible_widget'
   

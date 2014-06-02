@@ -77,36 +77,54 @@
   width: 800px;
   margin: 0 auto;
 
-  .journalist {
+  .journalist, .widget_examples{
     background: #fff;
     clear: both;
     position: relative;
     padding: 20px;
     margin-bottom: 20px;
-    div.bio {
-      text-align: justify;
-      display: inline-block;
-      width: 550px;
-      vertical-align: top;
-    }
 
-    div.photo {
-      display: inline-block;
-      width: 200px;
-      vertical-align: top;
-      img {
-        float:left;
-        margin: 0 10px 10px 0;
+    &.journalist {
+      div.bio {
+        text-align: justify;
+        display: inline-block;
+        width: 550px;
+        vertical-align: top;
+      }
+
+      div.photo {
+        display: inline-block;
+        width: 200px;
+        vertical-align: top;
+        img {
+          float:left;
+          margin: 0 10px 10px 0;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: #000;
+        font-style: italic;
+        margin: 10px 0;
+        clear: both;
+        display: block;
       }
     }
 
-    a {
-      text-decoration: none;
-      color: #000;
-      font-style: italic;
-      margin: 10px 0;
-      clear: both;
-      display: block;
+    &.widget_examples {
+      .widget_example {
+        margin: 10px auto 30px;
+      }
+
+      .code_example {
+        border: 1px solid #ccc;
+        background: #eee;
+        padding: 20px;
+        font-style: italic;
+        font-family: Verdana;
+        font-size: 0.8rem;
+      }
     }
   }
 

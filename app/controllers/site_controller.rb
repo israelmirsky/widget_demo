@@ -7,4 +7,8 @@ class SiteController < ActionController::Base
 
   def widget
   end
+
+  def custom_design
+    @journalist = User.journalists[1]
+  end
 end
