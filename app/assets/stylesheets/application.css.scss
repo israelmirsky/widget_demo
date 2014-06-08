@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+ * {
+  font-family: "futura-pt";
+ }
+
  #container {
   margin: 0 auto;
   width: 800px;
@@ -69,6 +73,9 @@
     border-bottom: 5px solid #eeeeee;
     text-transform: uppercase;
     margin: 50px 0;
+    font-family: "museo-slab",serif;
+    font-weight: 700;
+
   }
  }
 
@@ -83,6 +90,7 @@
     position: relative;
     padding: 20px;
     margin-bottom: 20px;
+
 
     &.journalist {
       div.bio {
@@ -119,11 +127,14 @@
 
       .code_example {
         border: 1px solid #ccc;
-        background: #eee;
+
+        background: #332e1b;
+        color: #ffffff;
         padding: 20px;
-        font-style: italic;
         font-family: Verdana;
-        font-size: 0.8rem;
+        font-size: 1rem;
+        font-family: "ubuntu-mono";
+        font-weight: 400;
       }
     }
   }

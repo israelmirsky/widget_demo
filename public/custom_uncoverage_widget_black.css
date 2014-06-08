@@ -34,3 +34,7 @@ body.widget > img {
   border-radius: 0px;
   border: 1px solid #999;
 }
+
+body.widget > form.widget > span.monthly {
+  color: #eee;
+}
