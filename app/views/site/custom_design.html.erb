@@ -1,25 +1,33 @@
 <div class="widget_examples">
+  <script src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/assets/widget/widget_code.js"></script>
+
   <h1>Customizing widget design</h1>
 
+  <p>You can easily customise widget design, providing your own css file by adding <b>custom_widget_css</b> attribute to the iframe attributes, where must be a link to a css file.</p>
 
-
-
-  <p>With <b>custom_widget_css</b> attribute</p>
-  <div class="code_example">
-    <%= "<iframe id='widget' custom_widget_css='http://localhost:3001/custom_uncoverage_widget.css' src='http://localhost:3000/widget?journalist_id=538232c25679610408210000&amp;amount=100' style='border: 0; width: 398px; height: 168px;' "%>></iframe>
-  </div>
-  <div class="widget_example">
-    <script src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/assets/widget/widget_code.js"></script>
-    <iframe id="widget" custom_widget_css="http://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget.css" src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= Rails.env.production? ? @journalist.uncoverage_id : '538232c25679610408210000' %>&amount=100" style="border: 0; width: 398px; height: 168px;"/></iframe>
-  </div>
 
   <p>Without <b>custom_widget_css</b> attribute</p>
   <div class="code_example">
-    <%= "<iframe id='widget' src='http://localhost:3000/widget?journalist_id=538232c25679610408210000&amp;amount=100' style='border: 0; width: 398px; height: 168px;' "%>></iframe>
+    <%= "<iframe id='widget' widget_id='#{ @id_1 }' src='http://#{ Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @id_1 }&amp;amount=100' style='border: 0; width: 398px; height: 168px;' "%>></iframe>
   </div>
 
   <div class="widget_example">
-    <script src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/assets/widget/widget_code.js"></script>
-    <iframe id="widget" src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= Rails.env.production? ? @journalist.uncoverage_id : '538232c25679610408210000' %>&amount=100" style="border: 0; width: 398px; height: 168px;"/></iframe>
+    <iframe id="widget" widget_id="<%= @id_1 %>" src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @id_1 %>&amount=100" style="border: 0; width: 398px; height: 168px;"/></iframe>
+  </div>
+
+  <p>With <b>custom_widget_css</b> attribute</p>
+  <div class="code_example">
+    <%= "<iframe id='widget' widget_id='#{ @id_2 }' custom_widget_css='http://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget.css' src='http://#{ Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @id_2 }&amp;amount=100' style='border: 0; width: 398px; height: 168px;' "%>></iframe>
+  </div>
+  <div class="widget_example">
+    <iframe id="widget" widget_id="<%= @id_2 %>" custom_widget_css="http://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget.css" src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @id_2 %>&amount=100" style="border: 0; width: 398px; height: 168px;"/></iframe>
+  </div>
+
+  <p>With <b>custom_widget_css</b> attribute</p>
+  <div class="code_example">
+    <%= "<iframe id='widget' widget_id='#{ @id3 }' custom_widget_css='http://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget_black.css' src='http://#{ Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @id_3 }&amount=100' style='border: 0; width: 398px; height: 168px;' "%>></iframe>
+  </div>
+  <div class="widget_example">
+    <iframe id="widget" widget_id="<%= @id_3 %>" custom_widget_css="http://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget_black.css" src="http://<%= Rails.env.production? ? 'alpha.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @id_3 %>&amount=100" style="border: 0; width: 398px; height: 168px;"/></iframe>
   </div>
 </div>

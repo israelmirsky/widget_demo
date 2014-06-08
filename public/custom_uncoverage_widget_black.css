@@ -1,0 +1,36 @@
+body.widget {
+  background: #666;
+  color: #eee;
+}
+  
+body.widget h3 {
+  font-size: 1.3rem;
+  color: #eee;
+  width: 350px;
+}
+
+body.widget p {
+  font-size: 0.9rem;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  left: 10px;
+  color: #fff;
+  text-align: justify;
+}
+
+body.widget > form.widget {
+  right: 28px;
+  bottom: 65px;
+  color: #eee;
+}
+
+body.widget > form.widget .CheckboxGlow {
+  color: #eee;
+  background: #fff !important;
+}
+
+body.widget > img {
+  border-radius: 0px;
+  border: 1px solid #999;
+}
