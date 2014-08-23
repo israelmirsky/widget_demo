@@ -4,8 +4,8 @@ Sample project that uses Uncoveraпe integration widget.
 
 == Setup
 
-  <script src="http://alpha.uncoverage.com/assets/widget/widget_integration_code.js"></script>
-  <iframe id="integration_widget" src="http://alpha.uncoverage.com/integration_widget?journalist_id=<JOURNALIST ID>" style="display: none;"/></iframe>
+  <script src="http://www.uncoverage.com/assets/widget/widget_integration_code.js"></script>
+  <iframe id="integration_widget" src="http://www.uncoverage.com/integration_widget?journalist_id=<JOURNALIST ID>" style="display: none;"/></iframe>
 
 == Usage
 
@@ -61,10 +61,10 @@ Sample project that uses Uncoveraпe integration widget.
 == Back-end (API)
 
 1.Create: 
-  POST http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions
+  POST http://www.uncoverage.com/api/journalists/<Journalist Id>/subscriptions
 
 2.Update:
-  PUT http://alpha.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
+  PUT http://www.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
 
 == Token authentication 
 

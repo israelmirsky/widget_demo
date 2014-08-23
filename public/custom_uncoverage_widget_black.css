@@ -38,3 +38,7 @@ body.widget > img {
 body.widget > form.widget > span.monthly {
   color: #eee;
 }
+
+body.widget > form.widget > span.dollar {
+  top: 37%;  
+}
