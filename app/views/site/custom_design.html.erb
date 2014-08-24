@@ -6,16 +6,16 @@
   <p>You can easily customise widget design, providing your own css file by adding the <b>custom_widget_css</b> attribute to the iframe, the value should be a link to a css file</p>
 
   <div class="code_example">
-    <%= "<iframe class='uncoverage_widget' id='#{ @journalist_ids[0] }' custom_widget_css='https://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget.css' src='//#{ Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @journalist_ids[0] }&amp;amount=1000'></iframe>"%>
+    <%= "<iframe class='uncoverage_widget' id='#{ @journalist_ids[0] }' custom_widget_css='http://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget.css' src='//#{ Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @journalist_ids[0] }&amp;amount=1000'></iframe>"%>
   </div>
   <div class="widget_example">
-    <iframe class="uncoverage_widget" id="<%= @journalist_ids[0] %>" custom_widget_css="https://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget.css" src="//<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @journalist_ids[0] %>&amp;amount=1000"/></iframe>
+    <iframe class="uncoverage_widget" id="<%= @journalist_ids[0] %>" custom_widget_css="http://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget.css" src="//<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @journalist_ids[0] %>&amp;amount=1000"/></iframe>
   </div>
 
   <div class="code_example">
-    <%= "<iframe class='uncoverage_widget' id='#{ @journalist_ids[1] }' custom_widget_css='https://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget_black.css' src='//#{ Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @journalist_ids[1] }&amp;amount=1000'></iframe>"%>
+    <%= "<iframe class='uncoverage_widget' id='#{ @journalist_ids[1] }' custom_widget_css='http://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget_black.css' src='//#{ Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @journalist_ids[1] }&amp;amount=1000'></iframe>"%>
   </div>
   <div class="widget_example">
-    <iframe class="uncoverage_widget" id="<%= @journalist_ids[1] %>" custom_widget_css="https://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget_black.css" src="//<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @journalist_ids[1] %>&amp;amount=1000"/></iframe>
+    <iframe class="uncoverage_widget" id="<%= @journalist_ids[1] %>" custom_widget_css="http://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget_black.css" src="//<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @journalist_ids[1] %>&amp;amount=1000"/></iframe>
   </div>
 </div>
