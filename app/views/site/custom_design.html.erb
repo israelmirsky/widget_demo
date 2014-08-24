@@ -1,33 +1,21 @@
 <div class="widget_examples">
-  <script src="http://<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/assets/widget/widget_code.js"></script>
+  <script src="//<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/assets/widget/widget_code.js"></script>
 
   <h1>Customizing widget design</h1>
 
-  <p>You can easily customise widget design, providing your own css file by adding <b>custom_widget_css</b> attribute to the iframe attributes, where must be a link to a css file.</p>
+  <p>You can easily customise widget design, providing your own css file by adding the <b>custom_widget_css</b> attribute to the iframe, the value should be a link to a css file</p>
 
-
-  <p>Without <b>custom_widget_css</b> attribute</p>
   <div class="code_example">
-    <%= "<iframe class='uncoverage_widget' id='#{ @id_1 }' src='http://#{ Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @id_1 }&amp;amount=100' "%>></iframe>
-  </div>
-
-  <div class="widget_example">
-    <iframe class="uncoverage_widget" id="<%= @id_1 %>" src="http://<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @id_1 %>&amount=100"/></iframe>
-  </div>
-
-  <p>With <b>custom_widget_css</b> attribute</p>
-  <div class="code_example">
-    <%= "<iframe class='uncoverage_widget' id='#{ @id_2 }' custom_widget_css='http://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget.css' src='http://#{ Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @id_2 }&amp;amount=100' "%>></iframe>
+    <%= "<iframe class='uncoverage_widget' id='#{ @journalist_ids[0] }' custom_widget_css='https://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget.css' src='//#{ Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @journalist_ids[0] }&amp;amount=1000'></iframe>"%>
   </div>
   <div class="widget_example">
-    <iframe class="uncoverage_widget" id="<%= @id_2 %>" custom_widget_css="http://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget.css" src="http://<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @id_2 %>&amount=100"/></iframe>
+    <iframe class="uncoverage_widget" id="<%= @journalist_ids[0] %>" custom_widget_css="https://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget.css" src="//<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @journalist_ids[0] %>&amp;amount=1000"/></iframe>
   </div>
 
-  <p>With <b>custom_widget_css</b> attribute</p>
   <div class="code_example">
-    <%= "<iframe class='uncoverage_widget' id='#{ @id3 }' custom_widget_css='http://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget_black.css' src='http://#{ Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @id_3 }&amount=100' "%>></iframe>
+    <%= "<iframe class='uncoverage_widget' id='#{ @journalist_ids[1] }' custom_widget_css='https://#{ Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' }/custom_uncoverage_widget_black.css' src='//#{ Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' }/widget?journalist_id=#{ @journalist_ids[1] }&amp;amount=1000'></iframe>"%>
   </div>
   <div class="widget_example">
-    <iframe class="uncoverage_widget" id="<%= @id_3 %>" custom_widget_css="http://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget_black.css" src="http://<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @id_3 %>&amount=100"/></iframe>
+    <iframe class="uncoverage_widget" id="<%= @journalist_ids[1] %>" custom_widget_css="https://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget_black.css" src="//<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= @journalist_ids[1] %>&amp;amount=1000"/></iframe>
   </div>
 </div>

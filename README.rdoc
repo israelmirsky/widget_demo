@@ -1,11 +1,14 @@
-== Example of Uncoverage integration widget
+=== Custom widget
 
-Sample project that uses Uncoveraпe integration widget.
+
+=== API integration
+
+Here's a demo of the Uncoverage API integration
 
 == Setup
 
-  <script src="http://www.uncoverage.com/assets/widget/widget_integration_code.js"></script>
-  <iframe id="integration_widget" src="http://www.uncoverage.com/integration_widget?journalist_id=<JOURNALIST ID>" style="display: none;"/></iframe>
+  <script src="//www.uncoverage.com/assets/widget/widget_integration_code.js" />
+  <iframe id="integration_widget" src="//www.uncoverage.com/integration_widget?journalist_id=<JOURNALIST ID>" style="display: none;"/></iframe>
 
 == Usage
 
@@ -61,17 +64,15 @@ Sample project that uses Uncoveraпe integration widget.
 == Back-end (API)
 
 1.Create: 
-  POST http://www.uncoverage.com/api/journalists/<Journalist Id>/subscriptions
+  POST https://www.uncoverage.com/api/journalists/<Journalist Id>/subscriptions
 
 2.Update:
-  PUT http://www.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
+  PUT https://www.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
 
 == Token authentication 
 
 Example of curl usage with auth token: 
   > curl -H "Authorization: Token token=PARTNER_TOKEN" API_ENDPOINT
-
-*we'll roll out an ssl version soon
 
 Parameters:
   { 
@@ -84,5 +85,5 @@ Parameters:
 
 == Example Page
 
-You can see the example of integrated code here
-http://widgetexample.herokuapp.com/invisible_widget
+You can see an example of the integrated code here:
+https://widgetexample.herokuapp.com/invisible_widget
