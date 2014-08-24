@@ -1,8 +1,14 @@
-=== Custom widget
+=== Basic widget example
+
+The example below represents a basic site with multiple journalists, and uncoverage widgets on the journalist's pages
+
+http://widgetexample.herokuapp.com
+
+=== Custom widget example
 
 The inside of an iframe can be styled by adding the 'custom_widget_css' attribute to the iframe. Examples:
 
-https://widgetexample.herokuapp.com/custom_design
+http://widgetexample.herokuapp.com/custom_design
 
 === API integration
 
@@ -89,4 +95,4 @@ Parameters:
 == Example Page
 
 You can see an example of the integrated code here:
-https://widgetexample.herokuapp.com/invisible_widget
+http://widgetexample.herokuapp.com/invisible_widget
