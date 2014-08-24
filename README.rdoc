@@ -1,25 +1,25 @@
-=== Basic widget example
+== Basic widget example
 
 The example below represents a basic site with multiple journalists, and uncoverage widgets on the journalist's pages
 
 http://widgetexample.herokuapp.com
 
-=== Custom widget example
+== Custom widget example
 
 The inside of an iframe can be styled by adding the 'custom_widget_css' attribute to the iframe. Examples:
 
 http://widgetexample.herokuapp.com/custom_design
 
-=== API integration
+== API integration
 
 Here's a demo of the Uncoverage API integration
 
-== Setup
+=== Setup
 
   <script src="//www.uncoverage.com/assets/widget/widget_integration_code.js" />
   <iframe id="integration_widget" src="//www.uncoverage.com/integration_widget?journalist_id=<JOURNALIST ID>" style="display: none;"/></iframe>
 
-== Usage
+=== Usage
 
 1. Get current user info:
   > Uncoverage.current_user
@@ -70,7 +70,7 @@ Here's a demo of the Uncoverage API integration
   Uncoverage.createCard()
   Uncoverage.closePopup()
 
-== Back-end (API)
+=== Back-end (API)
 
 1.Create: 
   POST https://www.uncoverage.com/api/journalists/<Journalist Id>/subscriptions
@@ -78,7 +78,7 @@ Here's a demo of the Uncoverage API integration
 2.Update:
   PUT https://www.uncoverage.com/api/journalists/<Journalist Id>/subscriptions/<Subscription Id>
 
-== Token authentication 
+=== Token authentication 
 
 Example of curl usage with auth token: 
   > curl -H "Authorization: Token token=PARTNER_TOKEN" API_ENDPOINT
@@ -92,7 +92,7 @@ Parameters:
     }
   }
 
-== Example Page
+=== Example Page
 
 You can see an example of the integrated code here:
 http://widgetexample.herokuapp.com/invisible_widget
