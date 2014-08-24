@@ -1,5 +1,8 @@
 === Custom widget
 
+The inside of an iframe can be styled by adding the 'custom_widget_css' attribute to the iframe. Examples:
+
+https://widgetexample.herokuapp.com/custom_design
 
 === API integration
 
