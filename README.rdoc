@@ -81,3 +81,8 @@ Parameters:
        is_active: true # indicate whether the subscription is active or not. Usually, when creating, you'll need to pass it as true
     }
   }
+
+== Example Page
+
+You can see the example of integrated code here
+http://widgetexample.herokuapp.com/invisible_widget
