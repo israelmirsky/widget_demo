@@ -3,7 +3,7 @@
   <h1><%= @journalist.full_name %></h1>
   <div class="photo"><%= image_tag @journalist.photo_url %></div>
   <div class="widget">
-    <iframe class="uncoverage_widget" id="<%= Rails.env.production? ? @journalist.uncoverage_id : '538232c25679610408210000' %>" custom_widget_css="http://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget_black.css" src="//<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= Rails.env.production? ? @journalist.uncoverage_id : '538232c25679610408210000' %>&amount=1000"/></iframe>
+    <iframe class="uncoverage_widget" id="<%= Rails.env.production? ? @journalist.uncoverage_id : '538232c25679610408210000' %>" data-custom_widget_css="http://<%= Rails.env.production? ? 'widgetexample.herokuapp.com' : 'localhost:3001' %>/custom_uncoverage_widget_black.css" src="//<%= Rails.env.production? ? 'www.uncoverage.com' : 'localhost:3000' %>/widget?journalist_id=<%= Rails.env.production? ? @journalist.uncoverage_id : '538232c25679610408210000' %>&amount=1000"/></iframe>
   </div>
   <h2><%= @journalist.first_name %>'s biography</h2>
   <% 10.times do %>

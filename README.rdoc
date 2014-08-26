@@ -6,7 +6,7 @@ http://widgetexample.herokuapp.com
 
 == Custom widget example
 
-The inside of an iframe can be styled by adding the 'custom_widget_css' attribute to the iframe. Examples:
+The inside of an iframe can be styled by adding the 'data-custom_widget_css' attribute to the iframe. Examples:
 
 http://widgetexample.herokuapp.com/custom_design
 
