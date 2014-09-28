@@ -1,18 +1,18 @@
- #container {
+#container {
   margin: 0 auto;
   width: 80%;
- }
+}
 
- header {
+header {
   text-align: center;
   padding: 20px auto;
   img {
     width: 200px;
     margin: 0 auto;
   }
- }
+}
 
- section.journalist {
+section.journalist {
   height: 100px;
   position: relative;
 
@@ -32,4 +32,10 @@
       top: 50px;
     }
   }
- }
+}
+
+@media (max-width: 640px) {
+  .journalist, .widget_examples {
+    padding: 3px !important;
+  }
+}

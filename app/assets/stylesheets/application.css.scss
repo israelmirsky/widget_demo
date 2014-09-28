@@ -78,7 +78,7 @@
     background: #fff;
     clear: both;
     position: relative;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 20px;
 
     &.journalist {
@@ -148,17 +148,6 @@
         margin: 0 10px 10px 0;
       }
     }
-
-    .widget {
-      display: block;
-      width: 100%;
-      height: 200px;
-      margin: 10px 0;
-      iframe {
-        position: relative;
-        min-width: 310px;
-      }
-    }
   }
 
   .journalists {
@@ -187,3 +176,17 @@
     }
   }
  }
+
+
+
+iframe.uncoverage_widget {
+  position: relative;
+  width: 390px;
+}
+
+@media (max-width: 640px) {
+  iframe.uncoverage_widget {
+    position: relative;
+    width: 310px !important;
+  }
+}
