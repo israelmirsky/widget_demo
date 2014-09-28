@@ -5,9 +5,6 @@ class SiteController < ActionController::Base
   def invisible_widget
   end
 
-  def widget
-  end
-
   def custom_design
     @journalist_ids = if Rails.env.production?
       User.journalists.limit(3).map(&:uncoverage_id)
